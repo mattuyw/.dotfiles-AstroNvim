@@ -1,3 +1,4 @@
 return { -- this table overrides highlights in all themes
-  -- Normal = { bg = "#000000" },
+  NeoTreeGitUntracked = { fg = "#B48EAD" },
+  NeoTreeGitUnstaged = { fg = "#B48EAD" },
 }
