@@ -6,13 +6,27 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      transparent_background = true,
-    }
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter-context"
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-context"
+    },
+    opts = function(_, opts) -- override the options using lazy.nvim
+      opts.transparent_background = true
+      require("treesitter-context").setup{
+        mode = 'topline',
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the 'default' entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            'class',
+            'function',
+            'method',
+          },
+        },
+      }
+    end,
   },
 
   {
@@ -54,27 +68,21 @@ return {
     end,
   },
 
-  -- "shaunsingh/nord.nvim",
-  -- "nordtheme/vim",
   {
-  "gbprod/nord.nvim",
-  config = function()
-    require('nord').setup({
-          transparent = true, -- Enable this to disable setting the background color
-      }) -- set
-    -- https://github.com/shaunsingh/nord.nvim/blob/master/README.md
-    --vim.g.nord_disable_background = true
-  end
+    "gbprod/nord.nvim",
+    opts = {
+      transparent = true,
+    }
   },
 
   -- https://github.com/catppuccin/nvim
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    opts = {
-          transparent_background = true,
-    }
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   opts = {
+  --     transparent_background = true,
+  --   }
+  -- },
 
   {
     "github/copilot.vim",

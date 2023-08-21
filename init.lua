@@ -1,5 +1,5 @@
 return {
-  colorscheme = "catppuccin",
+  colorscheme = "nord", --"catppuccin",
   -- NOTE: need to install xclip
   vim.api.nvim_set_option("clipboard","unnamedplus"),
 
