@@ -12,6 +12,10 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter-context"
+  },
+
+  {
     "goolord/alpha-nvim",
     opts = function(_, opts) -- override the options using lazy.nvim
       local button = require("alpha.themes.dashboard").button

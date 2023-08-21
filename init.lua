@@ -1,5 +1,7 @@
 return {
   colorscheme = "catppuccin",
+  -- NOTE: need to install xclip
+  vim.api.nvim_set_option("clipboard","unnamedplus"),
 
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
